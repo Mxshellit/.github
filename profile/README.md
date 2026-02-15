@@ -4,35 +4,35 @@
 
 A universal shell that eliminates operating system barriers through intelligent command translation and AI-powered security validation.  
 
-
-<img width="1920" height="1080" alt="mxsh" src="https://github.com/user-attachments/assets/cafb139a-1f0b-4316-8322-1208695d187c" />
+https://github.com/user-attachments/assets/8b772b02-8f82-4518-9a35-a6e51bdce690
 
 ## Overview
 
-MXSH is a cross-platform command-line shell designed to provide a unified interface across Windows, Linux, and macOS. Instead of requiring users to learn platform-specific command syntax, MXSH automatically detects and converts commands to work on any system while maintaining security through comprehensive validation.
+MXSH provides a unified command-line interface across different operating systems with intelligent security validation. Commands are analyzed by AI before execution to ensure safety and reliability. The system supports multiple shells and includes comprehensive security features to protect against malicious operations.
 
 ## Key Features
 
-**Universal Command Translation**
-Execute commands in any shell syntax. MXSH automatically converts platform-specific commands to work on your current system. Use `apt` on Windows, `winget` on Linux, or `brew` anywhere.
+**Multi-Shell Support with Shell Swapping**
+Execute commands in PowerShell, CMD, Zsh, or Bash from a single interface. Switch between shells seamlessly using prefixes or configure your default shell preference.
 
-**AI-Powered Security Analysis**
-Every command undergoes intelligent risk assessment before execution. The system evaluates potential dangers, destructive operations, and security implications through OpenAI's API.
+**AI-Based Command Filtering and Inspection**
+Every command is analyzed through AI-powered security validation before execution. The system evaluates risk levels, detects potentially destructive operations, and ensures only trusted commands run on your system.
 
-**DNS-Based Download Protection**
-Network downloads via `curl` or `wget` are validated against Cloudflare's malware-blocking DNS resolver, preventing connections to known malicious domains.
+**DNS-Based Malicious Download Prevention**
+Network downloads are validated against Cloudflare's malware-blocking DNS resolver. The system prevents connections to known malicious domains when using tools like curl or wget.
 
-**Encrypted Environment Management**
-Store sensitive environment variables with AES-256-GCM encryption. Support for both machine-specific and password-based encryption ensures credential security.
+**Network Connectivity Diagnostics**
+The netcheck feature provides comprehensive internet connection testing from your router through external DNS servers to destination hosts, helping diagnose network issues quickly.
 
-**Multi-Shell Support**
-Execute commands in PowerShell, Bash, or CMD from a single interface using shell-specific prefixes or automatic routing.
+**AES-Encrypted Environment Variable Management**
+Store and share sensitive environment variables securely using AES-256-GCM encryption. Supports both machine-specific and password-based encryption for flexible credential management.
 
-## Quick Start
+**GitHub Device Flow Authentication and Backup**
+Authenticate users through GitHub Device Flow and back up your configuration securely. This enables seamless setup across multiple machines while maintaining security.
 
-### Installation
+## Installation
 
-Build from source using Rust:
+Build from source using the Rust toolchain:
 
 ```bash
 git clone https://github.com/Mxshellit/Mxsh.git
@@ -40,84 +40,77 @@ cd Mxsh
 cargo build --release
 ```
 
-### Initialize
-
-Set up your OpenAI API key:
+After building, initialize MXSH with your OpenAI API key:
 
 ```bash
 mxsh init
 ```
 
-### Use
+## Usage
 
-Run commands naturally and let MXSH handle the rest:
+Run commands naturally and MXSH will handle platform conversion and security validation:
 
 ```bash
 apt install nodejs
 ```
 
-On Windows, MXSH automatically converts this to `winget install nodejs`.
-
-## Documentation
-
-Comprehensive documentation is available in the `docs/` directory:
-
-- **[Introduction](docs/README.md)** - Overview and core concepts
-- **[Getting Started](docs/getting-started.md)** - Installation and setup guide
-- **[Features](docs/features.md)** - Detailed feature documentation
-- **[Commands](docs/commands.md)** - Complete command reference
-- **[Security](docs/security.md)** - Security model and best practices
-- **[Configuration](docs/configuration.md)** - Customization and settings
+On Windows, this automatically converts to `winget install nodejs`. On macOS, it converts to `brew install nodejs`.
 
 ## Requirements
 
 - Operating System: Windows, Linux, or macOS
-- Rust toolchain (for building from source)
-- OpenAI API key (for AI-powered features)
+- Rust toolchain for building from source
+- OpenAI API key for AI-powered command validation
 
 ## Built-In Commands
 
-- `help` - Display command reference
-- `init` - Initialize MXSH configuration
-- `whoami` - Show current user and OS
-- `models` - Select AI model
-- `shells` - Configure default shell
-- `cpu` - Display top processes by CPU usage
-- `cd` - Enhanced directory navigation
+MXSH includes several built-in commands for configuration and system management:
+
+- `help` - Display available commands and usage information
+- `init` - Initialize MXSH configuration and set up API keys
+- `whoami` - Show current user information and operating system
+- `models` - Select and configure AI model preferences
+- `shells` - Configure default shell and shell preferences
+- `cpu` - Display top processes sorted by CPU usage
+- `cd` - Navigate directories with enhanced path handling
 - `env` - Manage encrypted environment variables
-- `clear` - Clear screen and redisplay banner
+- `netcheck` - Diagnose network connectivity from router to destination
+- `clear` - Clear screen and redisplay MXSH banner
 
-## Shell Prefixes
+## Shell Execution
 
-Execute commands in specific shells:
+Execute commands in specific shells using prefixes:
 
 ```bash
-$: Get-Process       # PowerShell
-#: ps aux             # Bash
->: dir /w            # CMD
+>ps: Get-Process       # PowerShell
+>zsh: ps aux             # Zsh
+>cmd: dir /w            # CMD
 ```
 
-## Security Features
+Without a prefix, MXSH uses your configured default shell or automatically selects based on the command syntax.
 
-**Risk Levels**
-Commands are classified as SAFE, LOW, MEDIUM, HIGH, or CRITICAL based on potential impact. High-risk operations require explicit user confirmation or bypass flags.
+## Security Model
 
-**Whitelisted Commands**
-Common read-only commands like `ls`, `cat`, and `git` execute immediately without AI analysis.
+MXSH implements a multi-layered security approach to protect your system:
 
-**Bypass Flags**
-For trusted operations:
-- `--skip-ai-check` - Bypass AI security analysis
-- `--skip-dns-check` - Skip DNS validation for downloads
+**Risk Classification**
+Commands are analyzed and classified as SAFE, LOW, MEDIUM, HIGH, or CRITICAL based on potential system impact. High-risk operations require explicit user confirmation before execution.
 
-## Contributing
+**Command Whitelisting**
+Common read-only commands such as ls, cat, pwd, and git execute immediately without AI analysis for better performance.
 
-Contributions are welcome. Please refer to the repository's contribution guidelines for details on submitting issues, feature requests, and pull requests.
+**DNS Validation**
+Network downloads are checked against malware databases before allowing connections to external hosts.
+
+**Security Bypass Options**
+For trusted automation or known-safe operations, you can use:
+- `--skip-ai-check` - Bypass AI security validation
+- `--skip-dns-check` - Skip DNS malware checking for downloads
 
 ## License
 
-See the LICENSE file for details.
+This project is released under the terms specified in the LICENSE file.
 
 ## Support
 
-For issues and questions, visit the [GitHub repository](https://github.com/Mxshellit/Mxsh). 
+For bug reports, feature requests, or questions, please visit the [GitHub repository](https://github.com/Mxshellit/Mxsh/issues). 
