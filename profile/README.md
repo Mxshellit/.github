@@ -2,7 +2,10 @@
 
 [![Deploy](https://github.com/Mxshellit/Mxsh/actions/workflows/deploy.yml/badge.svg)](https://github.com/Mxshellit/Mxsh/actions/workflows/deploy.yml)
 
-A universal shell that eliminates operating system barriers through intelligent command translation and AI-powered security validation.
+A universal shell that eliminates operating system barriers through intelligent command translation and AI-powered security validation.  
+
+
+<img width="1920" height="1080" alt="mxsh" src="https://github.com/user-attachments/assets/cafb139a-1f0b-4316-8322-1208695d187c" />
 
 ## Overview
 
