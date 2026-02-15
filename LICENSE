@@ -1,0 +1,45 @@
+# License
+
+This project is available under a dual-license model.
+
+## Personal and Non-Commercial Use
+
+For personal and non-commercial use, this software is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+
+You may use, modify, and distribute this software freely under the AGPL-3.0, provided that:
+- You disclose the source code
+- You include the original license and copyright notice
+- Any modifications are also licensed under AGPL-3.0
+- If you run a modified version on a server and let others interact with it, you must provide them with the source code
+
+See the full license text at https://www.gnu.org/licenses/agpl-3.0.html
+
+## Commercial and Enterprise Use
+
+Commercial use requires a separate commercial license.
+
+This includes but is not limited to:
+- Use by for-profit organizations
+- Integration into commercial products or services
+- Use for business operations
+- SaaS or hosted service offerings
+
+To obtain a commercial license, please contact:
+- Email: mail@mxsh.net
+
+---
+
+## License Selection Guide
+
+| Use Case | License |
+|----------|---------|
+| Personal projects | AGPL-3.0 |
+| Open source projects | AGPL-3.0 |
+| Educational and research | AGPL-3.0 |
+| Commercial SaaS | Commercial License |
+| Enterprise deployment | Commercial License |
+| Proprietary products | Commercial License |
+
+---
+
+Copyright © 2023-2026 mirseo, flymong27. All rights reserved.
